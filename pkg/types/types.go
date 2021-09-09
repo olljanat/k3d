@@ -197,6 +197,7 @@ type ClusterCreateOpts struct {
 		Use    []*Registry   `yaml:"use,omitempty" json:"use,omitempty"`
 		Config *k3s.Registry `yaml:"config,omitempty" json:"config,omitempty"` // registries.yaml (k3s config for containerd registry override)
 	} `yaml:"registries,omitempty" json:"registries,omitempty"`
+	SupportLonghorn            bool              `yaml:"supportlonghorn" json:"supportlonghorn,omitempty"`
 }
 
 // NodeHook is an action that is bound to a specifc stage of a node lifecycle

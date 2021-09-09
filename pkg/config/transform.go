@@ -245,6 +245,7 @@ func TransformSimpleToClusterConfig(ctx context.Context, runtime runtimes.Runtim
 		AgentsMemory:               simpleConfig.Options.Runtime.AgentsMemory,
 		GlobalLabels:               map[string]string{}, // empty init
 		GlobalEnv:                  []string{},          // empty init
+		SupportLonghorn:            simpleConfig.Options.K3dOptions.SupportLonghorn,
 	}
 
 	// ensure, that we have the default object labels

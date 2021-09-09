@@ -110,6 +110,7 @@ type SimpleConfigOptionsK3d struct {
 	NoRollback                 bool                 `mapstructure:"disableRollback" yaml:"disableRollback"`
 	PrepDisableHostIPInjection bool                 `mapstructure:"disableHostIPInjection" yaml:"disableHostIPInjection"`
 	NodeHookActions            []k3d.NodeHookAction `mapstructure:"nodeHookActions" yaml:"nodeHookActions,omitempty"`
+	SupportLonghorn            bool                 `mapstructure:"supportlonghorn" yaml:"supportlonghorn"`
 }
 
 type SimpleConfigOptionsK3s struct {

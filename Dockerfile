@@ -13,6 +13,9 @@ RUN echo "building for ${OS}/${ARCH}" && \
     apk update && \
     apk add bash curl sudo jq git make netcat-openbsd
 
+# install iscsid needed by Longhorn
+RUN apk add open-iscsi
+
 # install kubectl to interact with the k3d cluster
 RUN curl -L https://storage.googleapis.com/kubernetes-release/release/`curl -s https://storage.googleapis.com/kubernetes-release/release/stable.txt`/bin/${OS}/${ARCH}/kubectl -o /usr/local/bin/kubectl && \
     chmod +x /usr/local/bin/kubectl

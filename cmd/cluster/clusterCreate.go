@@ -327,6 +327,9 @@ func NewCmdClusterCreate() *cobra.Command {
 	cmd.Flags().String("agents-memory", "", "Memory limit imposed on the agents nodes [From docker]")
 	_ = cfgViper.BindPFlag("options.runtime.agentsmemory", cmd.Flags().Lookup("agents-memory"))
 
+	cmd.Flags().Bool("longhorn-support", false, "Enable iSCSI and data folder mounts needed by Longhorn")
+	_ = cfgViper.BindPFlag("options.k3d.supportlonghorn", cmd.Flags().Lookup("longhorn-support"))
+
 	/* Image Importing */
 	cmd.Flags().Bool("no-image-volume", false, "Disable the creation of a volume for importing images")
 	_ = cfgViper.BindPFlag("options.k3d.disableimagevolume", cmd.Flags().Lookup("no-image-volume"))

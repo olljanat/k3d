@@ -81,6 +81,7 @@ func TestReadSimpleConfig(t *testing.T) {
 				Timeout:             60 * time.Second,
 				DisableLoadbalancer: false,
 				DisableImageVolume:  false,
+				SupportLonghorn:     false,
 			},
 			K3sOptions: conf.SimpleConfigOptionsK3s{
 				ExtraServerArgs: []string{"--tls-san=127.0.0.1"},
