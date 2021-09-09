@@ -19,4 +19,18 @@ if [ -f /sys/fs/cgroup/cgroup.controllers ]; then
   sed -e 's/ / +/g' -e 's/^/+/' <"/sys/fs/cgroup/cgroup.controllers" >"/sys/fs/cgroup/cgroup.subtree_control"
 fi
 
+# TODO: Move to better place
+# Only run when longhorn support is enabled
+if [ ! -d "/var/lib/longhorn" ]; then
+  mkdir /var/lib/longhorn
+fi
+mount --bind /var/lib/longhorn /var/lib/longhorn
+mount --make-shared /var/lib/longhorn
+
+mkdir -p /host/proc
+mount -t proc none /host/proc
+mount --make-shared /
+mount --bind /var/lib/kubelet/pods /var/lib/kubelet/pods
+mount --make-shared /var/lib/kubelet/pods
+
 exec /bin/k3s "$@"
