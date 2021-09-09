@@ -27,10 +27,12 @@ fi
 mount --bind /var/lib/longhorn /var/lib/longhorn
 mount --make-shared /var/lib/longhorn
 
+mount --bind /var/lib/kubelet /var/lib/kubelet
+mount --make-shared /var/lib/kubelet
+
 mkdir -p /host/proc
 mount -t proc none /host/proc
 mount --make-shared /
-mount --bind /var/lib/kubelet/pods /var/lib/kubelet/pods
-mount --make-shared /var/lib/kubelet/pods
+
 
 exec /bin/k3s "$@"
