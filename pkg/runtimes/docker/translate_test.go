@@ -95,9 +95,9 @@ func TestTranslateNodeToContainer(t *testing.T) {
 	}
 
 	// TODO: // FIXME: FixCgroupV2 - to be removed when fixed upstream
-	if fixes.FixCgroupV2Enabled() {
+	// if fixes.FixCgroupV2Enabled() {
 		expectedRepresentation.ContainerConfig.Entrypoint = []string{"/bin/entrypoint.sh"}
-	}
+	// }
 
 	actualRepresentation, err := TranslateNodeToContainer(inputNode)
 	if err != nil {

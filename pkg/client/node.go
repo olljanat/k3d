@@ -301,8 +301,8 @@ func NodeStart(ctx context.Context, runtime runtimes.Runtime, node *k3d.Node, no
 
 	// FIXME: FixCgroupV2 - to be removed when fixed upstream
 	if node.Role == k3d.ServerRole || node.Role == k3d.AgentRole {
-		EnableCgroupV2FixIfNeeded(runtime)
-		if fixes.FixCgroupV2Enabled() {
+		// EnableCgroupV2FixIfNeeded(runtime)
+		// if fixes.FixCgroupV2Enabled() {
 
 			if nodeStartOpts.NodeHooks == nil {
 				nodeStartOpts.NodeHooks = []k3d.NodeHook{}
@@ -317,7 +317,7 @@ func NodeStart(ctx context.Context, runtime runtimes.Runtime, node *k3d.Node, no
 					Mode:    0744,
 				},
 			})
-		}
+		// }
 	}
 
 	startTime := time.Now()
