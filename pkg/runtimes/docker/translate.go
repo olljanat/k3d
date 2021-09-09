@@ -33,7 +33,6 @@ import (
 	"github.com/docker/go-connections/nat"
 	runtimeErr "github.com/rancher/k3d/v4/pkg/runtimes/errors"
 	k3d "github.com/rancher/k3d/v4/pkg/types"
-	"github.com/rancher/k3d/v4/pkg/types/fixes"
 	log "github.com/sirupsen/logrus"
 
 	dockercliopts "github.com/docker/cli/opts"
